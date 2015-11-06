@@ -12,3 +12,7 @@ nbproject
 
 node_modules/
 .avoscloud/
+
+ 
+public/dist/
+public/min/
