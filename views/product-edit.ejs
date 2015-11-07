@@ -5,25 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>淘宝后台管理</title>
 
-    <link rel="stylesheet" href="css/amazeui.min.css"/>
-    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="dist/css/taobao-shop.external.css"/>
+    <link rel="stylesheet" href="dist/css/taobao-shop.pages.css"/>
 </head>
 <body>
 
 
 <% include partails/header %>
 
-<div class="am-container">
+<div class="am-container product-edit-page">
 
-    <form class="am-form">
+    <form class="am-form" action="/product-edit" method="post">
 
         <fieldset>
 
             <legend>淘宝产品编辑代码生成器</legend>
 
-            <div class="am-form-group">
-                <label for="doc-ipt-email-1">邮件</label><input type="email" class="" id="doc-ipt-email-1" placeholder="输入电子邮件"/>
+
+            <div class="am-form-group am-form-select">
+                <label for="select-banner">选择商品Banner</label>
+                <select id="select-banner">
+                    <option value="0">随机选择</option>
+                    <option value="1" data-src="https://img.alicdn.com/imgextra/i1/42879206/TB2mpjfgVXXXXbZXXXXXXXXXXXX_!!42879206.jpg">许愿</option>
+                    <option value="2" data-src="https://img.alicdn.com/imgextra/i1/42879206/TB2GuffgVXXXXbRXXXXXXXXXXXX_!!42879206.jpg">友谊,关系</option>
+                    <option value="3" data-src="https://img.alicdn.com/imgextra/i3/42879206/TB2ZomYgVXXXXcoXpXXXXXXXXXX_!!42879206.jpg">能量符号</option>
+                    <option value="4" data-src="https://img.alicdn.com/imgextra/i3/42879206/TB2f2DrgVXXXXXiXXXXXXXXXXXX_!!42879206.jpg">女巫</option>
+                    <option value="5" data-src="https://img.alicdn.com/imgextra/i1/42879206/TB2PK5YgVXXXXa4XpXXXXXXXXXX_!!42879206.jpg">爱情</option>
+                    <option value="6" data-src="https://img.alicdn.com/imgextra/i2/42879206/TB2Y71SgVXXXXcBXpXXXXXXXXXX_!!42879206.jpg">爱情</option>
+                    <option value="7" data-src="https://img.alicdn.com/imgextra/i1/42879206/TB2v9W5gVXXXXalXpXXXXXXXXXX_!!42879206.jpg">事业,工作,学习</option>
+                    <option value="8" data-src="https://img.alicdn.com/imgextra/i3/42879206/TB2Qu5RgVXXXXbgXpXXXXXXXXXX_!!42879206.jpg">能量,许愿</option>
+                    <option value="9" data-src="https://img.alicdn.com/imgextra/i4/42879206/TB2S615gVXXXXakXpXXXXXXXXXX_!!42879206.jpg">冥想</option>
+                    <option value="10" data-src="https://img.alicdn.com/imgextra/i4/42879206/TB2KHvigVXXXXaTXXXXXXXXXXXX_!!42879206.jpg">疗愈,脉轮</option>
+                    <option value="11" data-src="https://img.alicdn.com/imgextra/i1/42879206/TB2Doq6gVXXXXXWXpXXXXXXXXXX_!!42879206.jpg">烦恼</option>
+                    <option value="12" data-src="https://img.alicdn.com/imgextra/i3/42879206/TB2Un2hgVXXXXa6XXXXXXXXXXXX_!!42879206.jpg">爱情</option>
+                    <option value="13" data-src="https://img.alicdn.com/imgextra/i2/42879206/TB2ELiVgVXXXXcXXpXXXXXXXXXX_!!42879206.jpg">精油，爱情</option>
+                    <option value="14" data-src="https://img.alicdn.com/imgextra/i4/42879206/TB2nwO2gVXXXXaDXpXXXXXXXXXX_!!42879206.jpg">冥想</option>
+                    <option value="15" data-src="https://img.alicdn.com/imgextra/i2/42879206/TB2KYGSgVXXXXcbXpXXXXXXXXXX_!!42879206.jpg">学习,事业,努力</option>
+                    <option value="16" data-src="https://img.alicdn.com/imgextra/i2/42879206/TB2tEq3gVXXXXazXpXXXXXXXXXX_!!42879206.jpg">魔法，制作</option>
+                    <option value="17" data-src="https://img.alicdn.com/imgextra/i2/42879206/TB2nPfdgVXXXXbZXXXXXXXXXXXX_!!42879206.jpg">女巫</option>
+                    <option value="18" data-src="https://img.alicdn.com/imgextra/i3/42879206/TB2tzLogVXXXXXVXXXXXXXXXXXX_!!42879206.jpg">爱情</option>
+                    <option value="19" data-src="https://img.alicdn.com/imgextra/i4/42879206/TB2Ag51gVXXXXaOXpXXXXXXXXXX_!!42879206.jpg">能量</option>
+                    <option value="20" data-src="https://img.alicdn.com/imgextra/i4/42879206/TB26B9SgVXXXXcEXpXXXXXXXXXX_!!42879206.jpg">能量</option>
+                    <option value="21" data-src="https://img.alicdn.com/imgextra/i3/42879206/TB29S9QgVXXXXcsXpXXXXXXXXXX_!!42879206.jpg">精油</option>
+                    <option value="22" data-src="https://img.alicdn.com/imgextra/i1/42879206/TB2gfbigVXXXXa6XXXXXXXXXXXX_!!42879206.jpg">友谊，关系</option>
+                    <option value="23" data-src="https://img.alicdn.com/imgextra/i1/42879206/TB2BRC6gVXXXXXeXpXXXXXXXXXX_!!42879206.jpg">美梦</option>
+                    <option value="24" data-src="https://img.alicdn.com/imgextra/i4/42879206/TB2DVzggVXXXXbpXXXXXXXXXXXX_!!42879206.jpg">金钱</option>
+                    <option value="25" data-src="https://img.alicdn.com/imgextra/i4/42879206/TB261q3gVXXXXaJXpXXXXXXXXXX_!!42879206.jpg">魔法，制作</option>
+                    <option value="26" data-src="https://img.alicdn.com/imgextra/i1/42879206/TB22hrggVXXXXaZXXXXXXXXXXXX_!!42879206.jpg">美梦，爱情</option>
+                    <option value="27" data-src="https://img.alicdn.com/imgextra/i1/42879206/TB2tD11gVXXXXbXXpXXXXXXXXXX_!!42879206.jpg">占卜</option>
+                    <option value="28" data-src="https://img.alicdn.com/imgextra/i3/42879206/TB2P4fpgVXXXXXqXXXXXXXXXXXX_!!42879206.jpg">选择</option>
+                    <option value="29" data-src="https://img.alicdn.com/imgextra/i1/42879206/TB2IR6agVXXXXcwXXXXXXXXXXXX_!!42879206.jpg">许愿</option>
+                    <option value="30" data-src="https://img.alicdn.com/imgextra/i1/42879206/TB2ab1TgVXXXXbMXpXXXXXXXXXX_!!42879206.jpg">许愿</option>
+                    <option value="31" data-src="https://img.alicdn.com/imgextra/i1/42879206/TB2yd50gVXXXXbtXpXXXXXXXXXX_!!42879206.jpg">幸福，成功</option>
+                    <option value="32" data-src="https://img.alicdn.com/imgextra/i2/42879206/TB2u.GPgVXXXXcZXpXXXXXXXXXX_!!42879206.jpg">人缘，朋友</option>
+                    <option value="33" data-src="https://img.alicdn.com/imgextra/i3/42879206/TB2XhLegVXXXXb_XXXXXXXXXXXX_!!42879206.jpg">幸福，旅行</option>
+                    <option value="34" data-src="https://img.alicdn.com/imgextra/i1/42879206/TB2bLW6gVXXXXXHXpXXXXXXXXXX_!!42879206.jpg">幸福，喜悦，享受</option>
+                    <option value="35" data-src="https://img.alicdn.com/imgextra/i1/42879206/TB2JoaOgVXXXXbCXpXXXXXXXXXX_!!42879206.jpg">负能量</option>
+                    <option value="36" data-src="https://img.alicdn.com/imgextra/i1/42879206/TB2WWS6gVXXXXakXpXXXXXXXXXX_!!42879206.jpg">财富，金钱</option>
+                    <option value="37" data-src="https://img.alicdn.com/imgextra/i2/42879206/TB2Xp1SgVXXXXa.XpXXXXXXXXXX_!!42879206.jpg">魔法牌符号</option>
+                    <option value="38" data-src="https://img.alicdn.com/imgextra/i2/42879206/TB2AuGZgVXXXXaMXpXXXXXXXXXX_!!42879206.jpg">爱情</option>
+                    <option value="39" data-src="https://img.alicdn.com/imgextra/i2/42879206/TB23SvggVXXXXaSXXXXXXXXXXXX_!!42879206.jpg">占卜</option>
+                    <option value="40" data-src="https://img.alicdn.com/imgextra/i1/42879206/TB2H5uYgVXXXXbfXpXXXXXXXXXX_!!42879206.jpg">占卜</option>
+                    <option value="41" data-src="https://img.alicdn.com/imgextra/i1/42879206/TB2qpGSgVXXXXcBXpXXXXXXXXXX_!!42879206.jpg">害羞</option>
+                    <option value="42" data-src="https://img.alicdn.com/imgextra/i4/42879206/TB25fKYgVXXXXa2XpXXXXXXXXXX_!!42879206.jpg">魔法仪式</option>
+                    <option value="43" data-src="https://img.alicdn.com/imgextra/i3/42879206/TB2KgKSgVXXXXceXpXXXXXXXXXX_!!42879206.jpg">魔法仪式</option>
+                    <option value="44" data-src="https://img.alicdn.com/imgextra/i1/42879206/TB2IdbagVXXXXXcXpXXXXXXXXXX_!!42879206.jpg">魔法仪式</option>
+                    <option value="45" data-src="https://img.alicdn.com/imgextra/i3/42879206/TB2L1iYgVXXXXbdXpXXXXXXXXXX_!!42879206.jpg">占卜</option>
+                    <option value="46" data-src="https://img.alicdn.com/imgextra/i1/42879206/TB2qLK3gVXXXXaEXpXXXXXXXXXX_!!42879206.jpg">努力，事业，学习</option>
+                </select>
+                <span class="am-form-caret"></span>
             </div>
+            
+            
+            
+            <div class="am-form-group">
+                <label for="doc-ipt-email-1">邮件</label>
+                <input type="email" class="" id="doc-ipt-email-1" placeholder="输入电子邮件"/>
+            </div>
+            
+            
+            <div class="am-form-group">
+                <input type="submit" value="提交"/>
+
+            </div>
+            
         </fieldset>
 
 
@@ -36,8 +101,16 @@
 <% include partails/footer %>
 
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/amazeui.min.js"></script>
-<script type="text/javascript" src="js/app-product-edit.js"></script>
+<script type="text/javascript" src="dist/js/taobao-shop.bundle.js"></script>
+<script type="text/javascript">
+    
+    $(function() {
+    
+        var productEdit = require('product-edit');
+        productEdit();
+        
+    });
+    
+</script>
 </body>
 </html>

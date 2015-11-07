@@ -9,7 +9,9 @@ var Todo = AV.Object.extend('Todo');
 // 查询 Todo 列表
 router.get('/', function(req, res, next) {
     
-    return res.render('product-edit');
+    return res.render('product-edit',{
+        name:"111"
+    });
     
     var query = new AV.Query(Todo);
     query.descending('createdAt');
@@ -37,6 +39,13 @@ router.get('/', function(req, res, next) {
 
 // 新增 Todo 项目
 router.post('/', function(req, res, next) {
+    
+    
+    return res.render('product-edit',{
+        name:"kingarthas"
+    });
+    
+    
     var content = req.body.content;
     var todo = new Todo();
     todo.set('content', content);
