@@ -13,6 +13,7 @@ nbproject
 node_modules/
 .avoscloud/
 
+npm-debug.log
  
 public/dist/
 public/min/
