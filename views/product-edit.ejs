@@ -2,14 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>淘宝后台管理</title>
-
-    <link rel="stylesheet" href="dist/css/taobao-shop.external.css"/>
-    <link rel="stylesheet" href="dist/css/taobao-shop.pages.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <title>51wish-淘宝产品编辑代码生成器</title>
+    <% include partails/css %>
 </head>
 <body>
-
 
 <% include partails/header %>
 
@@ -20,10 +17,21 @@
         <fieldset>
 
             <legend>淘宝产品编辑代码生成器</legend>
-
-
-            <div class="am-form-group am-form-select">
-                <label for="select-banner">选择商品Banner</label>
+            
+            
+            <!-- info start -->
+            <div id="content-info" class="am-form-group">
+                <label> <input type="checkbox" checked="checked"/> 使用购买说明</label>
+                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i2/42879206/TB25kLbgVXXXXaXXXXXXXXXXXXX_!!42879206.png"/></div>
+                <input id="md-code-info" name="md-code-info" type="text" disabled="disabled" />
+            </div>
+            <!-- info end -->
+            
+            <hr/>
+            
+            <!-- banner start -->
+            <div id="content-banner" class="am-form-group am-form-select">
+                <label>选择商品匹配的banner</label>
                 <select id="select-banner">
                     <option value="0">随机选择</option>
                     <option value="1" data-src="https://img.alicdn.com/imgextra/i1/42879206/TB2mpjfgVXXXXbZXXXXXXXXXXXX_!!42879206.jpg">许愿</option>
@@ -75,18 +83,88 @@
                 </select>
                 <span class="am-form-caret"></span>
             </div>
-            
-            
-            
-            <div class="am-form-group">
-                <label for="doc-ipt-email-1">邮件</label>
-                <input type="email" class="" id="doc-ipt-email-1" placeholder="输入电子邮件"/>
-            </div>
-            
-            
-            <div class="am-form-group">
-                <input type="submit" value="提交"/>
+            <div class="code-banner product-title "></div>
 
+            <input id="md-code-banner" type="text" name="md-code-banner"  disabled="disabled"/>
+            <!-- banner end -->
+
+
+            <hr/>
+
+
+            <!-- video start -->
+            <div class="am-form-group">
+                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i2/42879206/TB2axTggVXXXXXmXXXXXXXXXXXX_!!42879206.png"
+                          /></div>
+                <input  id="md-code-video" name="md-code-video" type="text" placeholder="输入产品视频" />
+            </div>
+            <!-- video end -->
+
+            <hr/>
+            
+            <!-- name start -->
+            <div class="am-form-group">
+                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i3/42879206/TB2Tm9ZgVXXXXXBXpXXXXXXXXXX_!!42879206.png"
+                                                /></div>
+                <input  id="md-code-name" name="md-code-name" type="text" placeholder="输入产品名称" />
+            </div>
+            <!-- name end -->
+
+            <hr/>
+
+            <!-- review start -->
+            <div class="am-form-group">
+                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i1/42879206/TB2eoSTgVXXXXXCXpXXXXXXXXXX_!!42879206.png"
+                                                /></div>
+                <textarea id="md-code-review" name="md-code-review" rows="3" placeholder="输入店主评语"></textarea>
+            </div>
+            <!-- review end -->
+
+            <hr/>
+            
+            <!-- property start -->
+            <div class="am-form-group">
+                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i4/42879206/TB2y.OMgVXXXXbtXpXXXXXXXXXX_!!42879206.png"
+                                                /></div>
+                <textarea id="md-code-property" name="md-code-property" rows="3" placeholder="输入产品属性"></textarea>
+            </div>
+            <!-- property end -->
+
+            <hr/>
+
+            <!-- instruction start -->
+            <div class="am-form-group">
+                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i4/42879206/TB2VtSHgVXXXXb7XpXXXXXXXXXX_!!42879206.png"
+                                                /></div>
+                <textarea id="md-code-instruction" name="md-code-instruction" rows="3" placeholder="输入产品说明"></textarea>
+            </div>
+            <!-- instruction end -->
+
+            <hr/>
+
+            <!-- detail start -->
+            <div class="am-form-group">
+                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i3/42879206/TB2ZGOQgVXXXXayXpXXXXXXXXXX_!!42879206.png"
+                                                /></div>
+                <textarea id="md-code-detail" name="md-code-detail" rows="5" placeholder="输入产品详情"></textarea>
+            </div>
+            <!-- detail end -->
+
+            <hr/>
+            
+            <!-- images start -->
+            <div class="am-form-group">
+                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i2/42879206/TB2nCnfgVXXXXXmXXXXXXXXXXXX_!!42879206.png"
+                                                /></div>
+                <textarea id="md-code-images" name="md-code-images" rows="5" placeholder="输入产品图片"></textarea>
+            </div>
+            <!-- images end -->
+
+            <hr/>
+            
+            <div class="am-form-group">
+                <button type="button" class="am-btn am-btn-primary">保存</button>
+                <button type="button" class="am-btn am-btn-success">预览</button>
             </div>
             
         </fieldset>
@@ -99,18 +177,15 @@
 
 
 <% include partails/footer %>
+<% include partails/js %>
 
-
-<script type="text/javascript" src="dist/js/taobao-shop.bundle.js"></script>
 <script type="text/javascript">
-    
     $(function() {
     
         var productEdit = require('product-edit');
         productEdit();
         
     });
-    
 </script>
 </body>
 </html>
