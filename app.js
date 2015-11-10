@@ -4,6 +4,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session      = require('express-session');
+
 
 //routes
 var todos = require('./routes/todos');
@@ -25,6 +27,10 @@ app.use(cloud);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(session({ secret: '123' })); // session middleware 
+app.use(require('flash')());
+
 
 // 未处理异常捕获 middleware
 app.use(function(req, res, next) {

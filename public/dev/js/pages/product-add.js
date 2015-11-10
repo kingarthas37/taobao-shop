@@ -1,11 +1,14 @@
 'use strict';
 
+require('jquery-validate');
+
 module.exports = function () {
     
-    
+    $('#form-add-product').validate();
+
     //使用购买说明信息
     (function() {
-    
+
         var contentInfo = $('#content-info');
         var mdCodeInfo = $('#md-code-info');
 
@@ -18,10 +21,10 @@ module.exports = function () {
                 mdCodeInfo.val('');
             }
         });
-    
+
     })();
-    
-    
+
+
     //选择banner
     (function() {
 
@@ -29,7 +32,7 @@ module.exports = function () {
         var bannerLength = select.find('option').length - 1;
         var codeBanner = $('.code-banner');
         var mdCodeBanner = $('#md-code-banner');
-        
+
         var count = Math.floor(Math.random(100) * bannerLength);
         var currentBannerSrc = select.find('option:eq(' + count + ')').attr('data-src');
         var currentBannerTitle = select.find('option:eq(' + count + ')').text();
@@ -38,7 +41,7 @@ module.exports = function () {
         mdCodeBanner.val('!['+ currentBannerTitle +']('+ currentBannerSrc +')');
 
         select.on('change',function() {
-            
+
             if(parseInt(this.value) === 0) {
                 var count = Math.floor(Math.random(100) * bannerLength);
                 currentBannerSrc = select.find('option:eq(' + count + ')').attr('data-src');
@@ -53,11 +56,5 @@ module.exports = function () {
         });
 
     })();
-    
-    
-    
-    $('.am-form').submit(function() {
-        
-    });
-    
+
 };

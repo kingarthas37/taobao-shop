@@ -1,3 +1,3 @@
 require('../../../js/main');
 
-require('./product/add');
+require('./product-add');

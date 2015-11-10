@@ -10,9 +10,11 @@
 
 <% include ../partails/header %>
 
-<div class="am-container product-edit-page">
 
-    <form class="am-form" action="/product/add" method="post">
+
+<div class="am-container product-page">
+
+    <form id="form-add-product" class="am-form" action="/product/add" method="post">
 
         <fieldset>
 
@@ -22,7 +24,7 @@
             <div id="content-info" class="am-form-group">
                 <label> <input type="checkbox" checked="checked"/> 使用购买说明</label>
                 <div class="product-title"><img src="https://img.alicdn.com/imgextra/i1/42879206/TB229F_hXXXXXcqXXXXXXXXXXXX_!!42879206.png"/></div>
-                <input id="md-code-info" name="md-code-info" type="text" disabled="disabled" />
+                <input id="md-code-info" name="md-code-info" type="text" readonly="readonly" />
             </div>
             <!-- info end -->
 
@@ -84,7 +86,7 @@
             </div>
             <div class="code-banner product-title "></div>
 
-            <input id="md-code-banner" type="text" name="md-code-banner"  disabled="disabled"/>
+            <input id="md-code-banner" type="text" name="md-code-banner" readonly="readonly" />
             <!-- banner end -->
 
 
@@ -105,7 +107,7 @@
             <div id="content-name" class="am-form-group">
                 <div class="product-title"><img src="https://img.alicdn.com/imgextra/i1/42879206/TB2wMedhXXXXXaWXXXXXXXXXXXX_!!42879206.png"
                         /></div>
-                <input  id="md-code-name" name="md-code-name" type="text" placeholder="输入产品名称" />
+                <input  id="md-code-name" required name="md-code-name" type="text" placeholder="输入产品名称[必填]" />
             </div>
             <!-- name end -->
 
@@ -145,7 +147,7 @@
             <div id="content-detail" class="am-form-group">
                 <div class="product-title"><img src="https://img.alicdn.com/imgextra/i1/42879206/TB2sTF6hXXXXXcCXXXXXXXXXXXX_!!42879206.png"
                         /></div>
-                <textarea id="md-code-detail" name="md-code-detail" rows="5" placeholder="输入产品详情"></textarea>
+                <textarea id="md-code-detail" name="md-code-detail" rows="5" placeholder="输入产品详情[必填]" required ></textarea>
             </div>
             <!-- detail end -->
 

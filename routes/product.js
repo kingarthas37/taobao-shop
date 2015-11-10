@@ -10,7 +10,7 @@ var Product = AV.Object.extend('Product');
 var title = '产品编辑';
 var currentPage = 'product';
 
-//产品首页
+//首页
 router.get('/', function(req, res, next) {
     
     return res.render('product/index',{
@@ -20,8 +20,8 @@ router.get('/', function(req, res, next) {
     
 });
 
-
-router.get('/',function(req,res,next) {
+//首页
+router.post('/',function(req,res,next) {
 
     return res.render('product/index',{
         title:title,
@@ -71,6 +71,7 @@ router.post('/add', function(req, res, next) {
 
     product.save(null, {
         success: function(data) {
+            
             res.render('product/add',{
                 title:title,
                 currentPage:currentPage,
