@@ -3,32 +3,31 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <title>51wish-淘宝产品编辑代码生成器</title>
-    <% include partails/css %>
+    <title><%= title %></title>
+    <% include ../partails/css %>
 </head>
 <body>
 
-<% include partails/header %>
+<% include ../partails/header %>
 
 <div class="am-container product-edit-page">
 
-    <form class="am-form" action="/product-edit" method="post">
+    <form class="am-form" action="/product/add" method="post">
 
         <fieldset>
 
-            <legend>淘宝产品编辑代码生成器</legend>
-            
-            
+            <legend>添加产品</legend>
+
             <!-- info start -->
             <div id="content-info" class="am-form-group">
                 <label> <input type="checkbox" checked="checked"/> 使用购买说明</label>
-                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i2/42879206/TB25kLbgVXXXXaXXXXXXXXXXXXX_!!42879206.png"/></div>
+                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i1/42879206/TB229F_hXXXXXcqXXXXXXXXXXXX_!!42879206.png"/></div>
                 <input id="md-code-info" name="md-code-info" type="text" disabled="disabled" />
             </div>
             <!-- info end -->
-            
+
             <hr/>
-            
+
             <!-- banner start -->
             <div id="content-banner" class="am-form-group am-form-select">
                 <label>选择商品匹配的banner</label>
@@ -93,19 +92,19 @@
 
 
             <!-- video start -->
-            <div class="am-form-group">
-                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i2/42879206/TB2axTggVXXXXXmXXXXXXXXXXXX_!!42879206.png"
-                          /></div>
+            <div id="content-video" class="am-form-group">
+                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i1/42879206/TB2nUd2hXXXXXcLXXXXXXXXXXXX_!!42879206.png"
+                        /></div>
                 <input  id="md-code-video" name="md-code-video" type="text" placeholder="输入产品视频" />
             </div>
             <!-- video end -->
 
             <hr/>
-            
+
             <!-- name start -->
-            <div class="am-form-group">
-                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i3/42879206/TB2Tm9ZgVXXXXXBXpXXXXXXXXXX_!!42879206.png"
-                                                /></div>
+            <div id="content-name" class="am-form-group">
+                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i1/42879206/TB2wMedhXXXXXaWXXXXXXXXXXXX_!!42879206.png"
+                        /></div>
                 <input  id="md-code-name" name="md-code-name" type="text" placeholder="输入产品名称" />
             </div>
             <!-- name end -->
@@ -113,19 +112,19 @@
             <hr/>
 
             <!-- review start -->
-            <div class="am-form-group">
-                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i1/42879206/TB2eoSTgVXXXXXCXpXXXXXXXXXX_!!42879206.png"
-                                                /></div>
+            <div id="content-review" class="am-form-group">
+                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i4/42879206/TB2sd8VhXXXXXasXpXXXXXXXXXX_!!42879206.png"
+                        /></div>
                 <textarea id="md-code-review" name="md-code-review" rows="3" placeholder="输入店主评语"></textarea>
             </div>
             <!-- review end -->
 
             <hr/>
-            
+
             <!-- property start -->
-            <div class="am-form-group">
-                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i4/42879206/TB2y.OMgVXXXXbtXpXXXXXXXXXX_!!42879206.png"
-                                                /></div>
+            <div id="content-property" class="am-form-group">
+                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i1/42879206/TB2Z2mghXXXXXaAXXXXXXXXXXXX_!!42879206.png"
+                        /></div>
                 <textarea id="md-code-property" name="md-code-property" rows="3" placeholder="输入产品属性"></textarea>
             </div>
             <!-- property end -->
@@ -133,9 +132,9 @@
             <hr/>
 
             <!-- instruction start -->
-            <div class="am-form-group">
-                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i4/42879206/TB2VtSHgVXXXXb7XpXXXXXXXXXX_!!42879206.png"
-                                                /></div>
+            <div id="content-instruction" class="am-form-group">
+                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i3/42879206/TB2zUlNhXXXXXcgXpXXXXXXXXXX_!!42879206.png"
+                        /></div>
                 <textarea id="md-code-instruction" name="md-code-instruction" rows="3" placeholder="输入产品说明"></textarea>
             </div>
             <!-- instruction end -->
@@ -143,48 +142,46 @@
             <hr/>
 
             <!-- detail start -->
-            <div class="am-form-group">
-                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i3/42879206/TB2ZGOQgVXXXXayXpXXXXXXXXXX_!!42879206.png"
-                                                /></div>
+            <div id="content-detail" class="am-form-group">
+                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i1/42879206/TB2sTF6hXXXXXcCXXXXXXXXXXXX_!!42879206.png"
+                        /></div>
                 <textarea id="md-code-detail" name="md-code-detail" rows="5" placeholder="输入产品详情"></textarea>
             </div>
             <!-- detail end -->
 
             <hr/>
-            
+
             <!-- images start -->
-            <div class="am-form-group">
-                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i2/42879206/TB2nCnfgVXXXXXmXXXXXXXXXXXX_!!42879206.png"
-                                                /></div>
-                <textarea id="md-code-images" name="md-code-images" rows="5" placeholder="输入产品图片"></textarea>
+            <div id="content-image" class="am-form-group">
+                <div class="product-title"><img src="https://img.alicdn.com/imgextra/i1/42879206/TB2Be8OhXXXXXcXXpXXXXXXXXXX_!!42879206.png"
+                        /></div>
+                <textarea id="md-code-image" name="md-code-image" rows="5" placeholder="输入产品图片"></textarea>
             </div>
             <!-- images end -->
 
             <hr/>
-            
+
             <div class="am-form-group">
-                <button type="button" class="am-btn am-btn-primary">保存</button>
-                <button type="button" class="am-btn am-btn-success">预览</button>
+                <button type="submit" class="am-btn am-btn-primary">保存</button>
+                <button type="button" class="am-btn am-btn-success">生成并预览</button>
             </div>
-            
+
         </fieldset>
-
-
 
     </form>
 
 </div>
 
 
-<% include partails/footer %>
-<% include partails/js %>
+<% include ../partails/footer %>
+<% include ../partails/js %>
 
 <script type="text/javascript">
     $(function() {
-    
-        var productEdit = require('product-edit');
-        productEdit();
-        
+
+        var productAdd = require('product-add');
+        productAdd();
+
     });
 </script>
 </body>

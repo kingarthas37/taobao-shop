@@ -4,8 +4,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
+//routes
 var todos = require('./routes/todos');
-var productEdit = require('./routes/product-edit');
+var product = require('./routes/product');
+
+
 var cloud = require('./cloud');
 
 var app = express();
@@ -44,12 +48,12 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function(req, res) {
-  res.render('index', { currentTime: new Date() });
+  res.render('index', { currentPage:'index' });
 });
 
 // 可以将一类的路由单独保存在一个文件中
 app.use('/todos', todos);
-app.use('/product-edit',productEdit);
+app.use('/product',product);
 
 
 // 如果任何路由都没匹配到，则认为 404
