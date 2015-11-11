@@ -75,7 +75,7 @@ router.post('/add', function(req, res, next) {
     product.save(null, {
         success: function(data) {
             
-            req.flash('info', 'Flash is back!');
+            req.flash('info', '添加商品成功!');
             
             res.render('product/add',{
                 title:title,

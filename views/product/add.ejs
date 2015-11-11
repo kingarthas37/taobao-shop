@@ -11,10 +11,16 @@
 <% include ../partails/header %>
 
 
-<%= info %>
+
 
 <div class="am-container product-page">
-
+    
+    <% if (info != '') { %>
+    <div class="am-panel am-panel-success">
+        <div class="am-panel-hd"><h3 class="am-panel-title"><%= info %></h3></div>
+    </div>
+    <% } %>
+    
     <form id="form-add-product" class="am-form" action="/product/add" method="post">
 
         <fieldset>

@@ -12,8 +12,22 @@
 
 <div class="am-container product-page">
 
-    <a href="/product/add">添加产品</a>
-    
+        <fieldset>
+
+            <legend>产品列表</legend>
+
+            
+
+            <hr/>
+
+            <div class="am-form-group">
+                <button type="submit" class="am-btn am-btn-primary">保存</button>
+                <button type="button" class="am-btn am-btn-success">生成并预览</button>
+            </div>
+
+        </fieldset>
+
+
 </div>
 
 
@@ -22,8 +36,9 @@
 
 <script type="text/javascript">
     $(function() {
-        
-        
+
+        var productAdd = require('product-add');
+        productAdd();
 
     });
 </script>
