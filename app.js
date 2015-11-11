@@ -4,7 +4,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var session      = require('express-session');
+var session = require('express-session');
 
 
 //routes
@@ -28,8 +28,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(session({ secret: '123' })); // session middleware 
-app.use(require('flash')());
+app.use(session({secret:'secret'}));
+app.use(require('connect-flash')());
 
 
 // 未处理异常捕获 middleware

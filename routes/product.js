@@ -3,6 +3,8 @@
 var router = require('express').Router();
 var AV = require('leanengine');
 
+var flash = require('connect-flash');
+
 var markdown = require( "markdown" ).markdown;
 
 var Product = AV.Object.extend('Product');
@@ -36,7 +38,8 @@ router.get('/add',function(req,res,next) {
 
     return res.render('product/add',{
         title:title,
-        currentPage:currentPage
+        currentPage:currentPage,
+        info:req.flash('info')
     });
     
 });
@@ -72,10 +75,13 @@ router.post('/add', function(req, res, next) {
     product.save(null, {
         success: function(data) {
             
+            req.flash('info', 'Flash is back!');
+            
             res.render('product/add',{
                 title:title,
                 currentPage:currentPage,
-                data:data
+                data:data,
+                info:req.flash('info')
             });
         },
         error: function(err) {
