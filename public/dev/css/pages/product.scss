@@ -28,4 +28,29 @@
         margin: 10px 0;
     }
     
+    .am-panel-hd {
+        border:none;
+    }
+    
+    .am-panel {
+        box-shadow: none;
+    }
+    
+}
+
+
+.product-view-page {
+    width: 550px;
+    margin:30px auto;
+    
+    p {
+        margin:0 0 10px 0;
+    }
+
+    .preview-content {
+        img {
+            width: 100%;
+        }
+    }
+    
 }

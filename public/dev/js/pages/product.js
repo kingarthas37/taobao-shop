@@ -1,0 +1,130 @@
+'use strict';
+
+require('jquery-validate');
+
+module.exports = {
+
+    addFun:function() {
+
+        $('#form-add-product').validate();
+        this.chooseInfo();
+        this.chooseBanner();
+        this.formActionSelect();
+
+    },
+    editFun:function() {
+
+        $('#form-add-product').validate();
+        this.chooseInfo();
+        this.chooseBanner();
+        this.formActionSelect();
+    },
+    
+    removeFun:function() {
+    
+        $('.remove-product').click(function() {
+            return confirm('是否要删除此产品?');
+        });
+    
+    },
+
+    previewFun:function() {
+        var btnCopy = $('.btn-copy');
+        btnCopy.zclip({
+              path: '/swf/ZeroClipboard.swf',
+              copy: function () {
+                  
+                  var html = $.trim($('.preview-content').html());
+                  html = html.replace(/\<img/g,'<img style="width:100%"');
+                  
+                  return html;
+              },
+              afterCopy: function () {
+                  btnCopy.popover({
+                      content: '复制成功!'
+                  })
+              }
+          });
+        
+    },
+    
+    //使用购买说明信息
+    chooseInfo:function() {
+
+        var contentInfo = $('#content-info');
+        var mdCodeInfo = $('#md-code-info');
+
+        mdCodeInfo.val('![]('+ contentInfo.find('.product-title img').attr('src') +')');
+
+        contentInfo.find(':checkbox').click(function() {
+            if(this.checked) {
+                mdCodeInfo.val('![]('+ contentInfo.find('.product-title img').attr('src') +')');
+            } else {
+                mdCodeInfo.val('');
+            }
+        });
+        
+    },
+    
+    //选择banner
+    chooseBanner:function() {
+
+        var select = $('#select-banner');
+        var bannerLength = select.find('option').length - 1;
+        var codeBanner = $('.code-banner');
+        var mdCodeBanner = $('#md-code-banner');
+        
+        var currentBannerSrc,
+            currentBannerTitle;
+        
+        //如果是新增产品，默认为0
+        if(parseInt(select.val()) === 0) {
+            
+            var count = Math.floor(Math.random(100) * bannerLength);
+            currentBannerSrc = select.find('option:eq(' + count + ')').attr('data-src');
+            currentBannerTitle = select.find('option:eq(' + count + ')').text();
+
+            codeBanner.html('<img src="'+ currentBannerSrc +'"/>');
+            mdCodeBanner.val('!['+ currentBannerTitle +']('+ currentBannerSrc +')');
+            
+            //编辑产品
+        } else {
+            
+            currentBannerSrc = select.find('option:selected').attr('data-src');
+            currentBannerTitle = select.find('option:selected').text();
+
+            codeBanner.html('<img src="'+ currentBannerSrc +'"/>');
+            mdCodeBanner.val('!['+ currentBannerTitle +']('+ currentBannerSrc +')');
+        }
+        
+        select.on('change',function() {
+
+            if(parseInt(this.value) === 0) {
+                var count = Math.floor(Math.random(100) * bannerLength);
+                currentBannerSrc = select.find('option:eq(' + count + ')').attr('data-src');
+                currentBannerTitle = select.find('option:eq(' + count + ')').text();
+            } else {
+                currentBannerSrc = select.find('option:eq(' + this.value + ')').attr('data-src');
+                currentBannerTitle = select.find('option:eq(' + this.value + ')').text();
+            }
+            codeBanner.html('<img src="'+ currentBannerSrc +'"/>');
+            mdCodeBanner.val('!['+ currentBannerTitle +']('+ currentBannerSrc +')');
+
+        });
+        
+    },
+    
+    //表单提交，是否是保存还是预览
+    formActionSelect:function() {
+
+        $('form :submit').click(function() {
+            $('form').attr({
+                'action':$(this).attr('data-action'),
+                'target':$(this).attr('data-target')
+            });
+            return true;
+        });
+        
+    }
+
+};

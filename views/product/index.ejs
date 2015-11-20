@@ -10,19 +10,49 @@
 
 <% include ../partials/header %>
 
+
 <div class="am-container product-page">
 
+    <% if (info != '') { %>
+    <div class="am-panel am-panel-success">
+        <div class="am-panel-hd"><h3 class="am-panel-title"><%= info %></h3></div>
+    </div>
+    <% } %>
+    
         <fieldset>
 
-            <legend>产品列表</legend>
+            <legend><a href="/product">产品列表</a></legend>
 
+            <table class="am-table">
+                <thead>
+                <tr>
+                   <th>产品名称</th>
+                   <th>产品分类</th>
+                    <th width="50">编辑</th>
+                    <th width="50">删除</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% for(var i=0; i < product.length; i++) {%>
+                <tr>
+                    <td><a href="/product/edit/<%= product[i].get('productId') %>"><%= product[i].get('name') %></a> </td>
+                    <td><a href="/product?category=<%= product[i].get('categoryId') %>"><%= product[i].get('categoryName') %></a></td>
+                    <td><a href="/product/edit/<%= product[i].get('productId') %>">编辑</a> </td>
+                    <td><a href="/product/remove/<%= product[i].get('productId') %>" class="remove-product">删除</a> </td>
+                </tr>
+                <% } %>
+                </tbody>
+            </table>
             
-
+            <ul class="am-pagination">
+                <% if (productPager.prev) { %> <li><a href="/product?page=<%= productPager.prev %>">上一页</a></li> <% } %>
+                <% if (productPager.next) { %> <li><a href="/product?page=<%= productPager.next %>">下一页</a></li> <% } %>
+            </ul>
+            
             <hr/>
 
             <div class="am-form-group">
-                <button type="submit" class="am-btn am-btn-primary">保存</button>
-                <button type="button" class="am-btn am-btn-success">生成并预览</button>
+                <a href="/product/add" class="am-btn am-btn-primary" role="button">添加新产品</a>
             </div>
 
         </fieldset>
@@ -30,16 +60,13 @@
 
 </div>
 
-
 <% include ../partials/footer %>
 <% include ../partials/js %>
 
 <script type="text/javascript">
     $(function() {
-
-        var productAdd = require('product-add');
-        productAdd();
-
+        var product = require('product');
+        product.removeFun();
     });
 </script>
 </body>

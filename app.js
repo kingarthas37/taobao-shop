@@ -9,7 +9,8 @@ var session = require('express-session');
 
 //routes
 var todos = require('./routes/todos');
-var product = require('./routes/product');
+var routes = require('./routes/main');
+
 
 
 var cloud = require('./cloud');
@@ -59,7 +60,12 @@ app.get('/', function(req, res) {
 
 // 可以将一类的路由单独保存在一个文件中
 app.use('/todos', todos);
-app.use('/product',product);
+//app.use('/product',product);
+
+for(var k in routes) {
+  app.use(k,routes[k]);
+}
+
 
 
 // 如果任何路由都没匹配到，则认为 404
