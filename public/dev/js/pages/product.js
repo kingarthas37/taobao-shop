@@ -4,6 +4,34 @@ require('jquery-validate');
 
 module.exports = {
 
+    indexFun:function() {
+
+        $('.select-category').change(function() {
+            if(this.value > 0 ) {
+                location.href = '/product?categoryId=' + this.value;
+            }
+        });
+
+        $('.remove-product').click(function() {
+
+            var $this = $(this);
+            
+            $('#confirm-remove-product').modal({
+                relatedTarget: this,
+                onConfirm: function(options) {
+                    location.href = $this.attr('href');
+                },
+                onCancel: function() {
+                    return false;
+                }
+            });
+            
+            return false;
+            
+        });
+
+    },
+
     addFun:function() {
 
         $('#form-add-product').validate();
@@ -19,14 +47,7 @@ module.exports = {
         this.chooseBanner();
         this.formActionSelect();
     },
-    
-    removeFun:function() {
-    
-        $('.remove-product').click(function() {
-            return confirm('是否要删除此产品?');
-        });
-    
-    },
+     
 
     previewFun:function() {
         var btnCopy = $('.btn-copy');

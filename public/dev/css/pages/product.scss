@@ -24,16 +24,14 @@
         color: red;
     }
     
-    .am-panel {
-        margin: 10px 0;
+    .am-alert {
+        margin:10px 0;
     }
     
-    .am-panel-hd {
-        border:none;
-    }
-    
-    .am-panel {
-        box-shadow: none;
+    .am-form-inline {
+        span {
+            padding: 0 10px;
+        }
     }
     
 }
