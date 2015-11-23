@@ -52,6 +52,7 @@
     "merge-stream": "^1.0.0",
     "minimist": "~1.2.0",
     "node-array": "0.0.7",
+    "phantomjs": "^1.9.18",
     "q": "~1.4.0",
     "through2": "^2.0.0",
     "underscore": "~1.8.0",
@@ -59,6 +60,7 @@
     "vinyl-source-stream": "~1.1.0",
     "vinyl-transform": "^1.0.0",
     "watchify": "~3.6.0",
+    "webshot": "^0.16.0",
     "xtend": "~4.0.0"
   },
   "browser": {

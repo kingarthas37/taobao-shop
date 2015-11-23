@@ -8,6 +8,8 @@ var flash = require('connect-flash');
 var async = require('async');
 var extend = require("xtend");
 var markdown = require("markdown").markdown;
+var webshot = require('webshot');
+var Array = require('node-array');
 
 //class
 var Product = AV.Object.extend('Product');
@@ -47,9 +49,64 @@ router.post('/', function (req, res, next) {
         mdCodeImage: markdown.toHTML(mdCodeImage)
     };
 
+    
+    
     res.render('product/preview', datas);
 
 
+});
+
+
+//shot
+router.post('/shot',function(req,res,next) {
+
+    var html = req.body.html;
+    var htmlHeight = req.body.htmlHeight;
+
+    html += "<style>body { margin:0; width:750px; font-size:20px;line-height:24px; background: #fff;font-family:'Segoe UI','Lucida Grande','Helvetica','Arial','Microsoft YaHei'; }img {width: 100%;} p {margin:0;padding:0 15px 15px;} </style>";
+    
+    //淘宝发布的Mobile尺寸最大高度为960，故需要分段
+    var segments = new Array(Math.ceil( htmlHeight / 960));
+    
+    var options = {
+        siteType:'html',
+        shotSize: {
+            width: 750,
+            height: 960
+        }
+    };
+    
+    segments.forEachAsync(function(segment, index, arr, next) {
+
+        var option = extend(options,{
+            shotOffset:{
+                left:0,
+                right:0,
+                top:index * 960,
+                bottom:0
+            }
+        });
+
+        
+        webshot(html, 'google'+ index +'.png',option,function(err) {
+            
+            if(err) {
+                res.send(err);
+            }
+            
+            next();
+            
+        });
+            
+        return true;
+    
+    },
+    function() {
+        res.json({
+            "success":1
+        });
+    });
+    
 });
 
 module.exports = router;

@@ -50,14 +50,16 @@ module.exports = {
      
 
     previewFun:function() {
+
+        var previewContent = $('.preview-content');
+        
+        var html = $.trim(previewContent.html());
+        html = html.replace(/\<img/g,'<img style="width:100%"');
+        
         var btnCopy = $('.btn-copy');
         btnCopy.zclip({
               path: '/swf/ZeroClipboard.swf',
               copy: function () {
-                  
-                  var html = $.trim($('.preview-content').html());
-                  html = html.replace(/\<img/g,'<img style="width:100%"');
-                  
                   return html;
               },
               afterCopy: function () {
@@ -66,6 +68,21 @@ module.exports = {
                   })
               }
           });
+        
+        var btnShot = $('.btn-shot');
+        btnShot.click(function() {
+            $.ajax({
+                url:'/product/preview/shot',
+                type:'post',
+                data:{
+                    html:html,
+                    htmlHeight:previewContent.height()
+                },
+                success:function(data) {
+                    console.info(data);
+                }
+            });
+        });
         
     },
     
