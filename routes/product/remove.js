@@ -50,7 +50,8 @@ router.get('/:productId', function (req, res, next) {
         function (object, cb) {
             object.destroy({
                 success: function () {
-                    res.redirect('/product')
+                    req.flash('info', '删除成功!');
+                    res.redirect('/product');
                 }
             });
         }
